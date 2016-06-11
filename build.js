@@ -52,7 +52,7 @@ Metalsmith(__dirname)
   .use(drafts())
   .metadata({
     site: {
-      title: "Ev on IPFS",
+      title: "Starsmith",
       url: 'http://ipfs.io/blog/',
       author: '<a href="http://evbogue.com/">Everett Bogue</a>'
     }
