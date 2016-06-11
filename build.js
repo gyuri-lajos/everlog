@@ -9,8 +9,6 @@ var markdown = require('metalsmith-markdown')
 var permalinks = require('metalsmith-permalinks')
 var feed = require('metalsmith-feed')
 var msstatic = require('metalsmith-static')
-var drafts = require('metalsmith-drafts')
-var headingsidentifier = require('metalsmith-headings-identifier')
 var msIf = require('metalsmith-if')
 
 var nunjucks = require('nunjucks')
@@ -47,7 +45,6 @@ njdate.install(njenv)
 njenv.addFilter('dump', JSON.stringify)
 
 Metalsmith(__dirname)
-  .use(drafts())
   .metadata({
     site: {
       title: "Starsmith",
@@ -61,7 +58,7 @@ Metalsmith(__dirname)
   .use(markdown())
   .use(templates({ 'directory': '.', 'engine': 'nunjucks', 'inPlace': true }))
   .use(templates({ 'directory': '.', 'engine': 'nunjucks' }))
-  .use(headingsidentifier())
+  // .use(headingsidentifier())
   .use(permalinks())
   .use(feed({'collection': 'posts'}))
   .use(msstatic({'src': 'tmpl/static', 'dest': 'static'}))
