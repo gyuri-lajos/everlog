@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ site.title }} | {{ title }}</title>
+
+<link rel="stylesheet" href="{{ baseurl }}/static/reserva.css" />
+<link rel="alternate" type="application/rss+xml" href="{{ baseurl }}/rss.xml" />
+</head>
+<body>
+
+<div class="contain">
+<div class="eight cols off-by-two">
+    <p>
+    / <a href="http://ipfs.io">ipfs</a>
+    / <a href="{{ baseurl }}">blog</a>
+    {% for bc in breadcrumbs %}
+     / <a href="{{ bc.link }}">{{ bc.name }}</a>
+    {% endfor %}
+    </p>
+
+{% block content %}
+  {{ contents }}
+{% endblock %}
+
+</div>
+</div> <!-- container / content -->
+</body>
+</html>

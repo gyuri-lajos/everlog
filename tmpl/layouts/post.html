@@ -1,0 +1,10 @@
+{% extends "tmpl/layouts/basic.html" %}
+
+{% block content %}
+<div class="post">
+    <h1>{{ title }}</h1>
+    <p>by {{ site.author }} on {{ date | date("YYYY-MM-DD") }}</p>
+
+    {{ contents }}
+</div>
+{% endblock %}
