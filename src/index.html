@@ -5,15 +5,9 @@ template: tmpl/layouts/basic.html
 
 <h1>{{ site.title }}</h1>
 
-<p>This is the IPFS Starlog, a series of communications about the
-<a href="http://ipfs.io">IPFS Project</a>. These posts are written by the IPFS
-team, and members of the broader community. The subject matter is broad:
-project news, protocol explanations, development stories, usage examples,
-application spotlights, and more.
+<p>Starsmith is an attempt to bring the IPFS Starlog and Metalwork together into a coherent workable whole. It's a work-in-progress right now.</p>
 
-<br />
-<br />
-<p>starlog entries: {{ collections.posts.length }}</p>
+<p>Starsmith entries: {{ collections.posts.length }}</p>
 
 <ul>
 {% for item in collections.posts | reverse %}
