@@ -8,4 +8,3 @@ collection: posts
 ---
 
 This is my first Starsmith post.
-

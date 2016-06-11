@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var Metalsmith = require('metalsmith')
-var debug = require('metalsmith-debug')
 var templates = require('metalsmith-templates')
 var collections = require('metalsmith-collections')
 var serve = require('metalsmith-serve')
@@ -48,7 +47,6 @@ njdate.install(njenv)
 njenv.addFilter('dump', JSON.stringify)
 
 Metalsmith(__dirname)
-  .use(debug())
   .use(drafts())
   .metadata({
     site: {
