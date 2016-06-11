@@ -11,9 +11,7 @@
         <p>
           / <a href="http://ipfs.io">ipfs</a>
           / <a href="{{ baseurl }}">blog</a>
-          {% for bc in breadcrumbs %}
-            / <a href="{{ bc.link }}">{{ bc.name }}</a>
-          {% endfor %}
+          / <a href="{{ url }}">{{ title }}</a>
         </p>
 
         {% block content %}
