@@ -11,8 +11,9 @@ template: tmpl/layouts/basic.html
 
 <ul>
 {% for item in collections.posts | reverse %}
-  <li>{{ item.date | date("YYYY-MM-DD") }} -
-    <a href="{{ item.id }}">{{ item.title }}</a>
+  <li>
+    <a href="{{ item.id }}">{{ item.title }}</a> - 
+    {{ item.date | date("MMMM Do YYYY") }}
   </li>
 {% endfor %}
 </ul>
