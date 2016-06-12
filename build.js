@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-var Metalsmith = require('metalsmith')
+var metalsmith = require('metalsmith')
 var templates = require('metalsmith-templates')
 var collections = require('metalsmith-collections')
 var serve = require('metalsmith-serve')
@@ -44,7 +42,7 @@ njdate.install(njenv)
 
 njenv.addFilter('dump', JSON.stringify)
 
-Metalsmith(__dirname)
+metalsmith(__dirname)
   .metadata({
     site: {
       title: "Starsmith",
