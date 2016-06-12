@@ -50,13 +50,10 @@ metalsmith(__dirname)
       author: '<a href="http://evbogue.com/">Everett Bogue</a>'
     }
   })
-  .use(collections({
-    posts: {}
-  }))
+  .use(collections({posts: {}}))
   .use(markdown())
   .use(templates({ 'directory': '.', 'engine': 'nunjucks', 'inPlace': true }))
   .use(templates({ 'directory': '.', 'engine': 'nunjucks' }))
-  // .use(headingsidentifier())
   .use(permalinks())
   .use(feed({'collection': 'posts'}))
   .use(msstatic({'src': 'tmpl/static', 'dest': 'static'}))
