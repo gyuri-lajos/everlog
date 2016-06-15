@@ -27,7 +27,7 @@ var cli = meow(`
 metalsmith(__dirname)
   .metadata({
     site: {
-      title: "Starsmith",
+      title: "Everlog",
       url: 'http://ipfs.io/blog/',
       author: 'Everett Bogue'
     }

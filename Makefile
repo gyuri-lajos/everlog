@@ -4,10 +4,10 @@ gway="https://ipfs.io/ipfs/"
 zone="ipfs.io"
 record="_dnslink.blog"
 
-build: $(shell find src tmpl) build.js package.json
+build: $(shell find src) build.js package.json
 	node build.js
 
-serve: $(shell find src tmpl) build.js package.json
+serve: $(shell find src) build.js package.json
 	node build.js --watch
 
 node_modules: package.json

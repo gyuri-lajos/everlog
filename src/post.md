@@ -5,5 +5,5 @@ collection: posts
 layout: post.jade
 ---
 
-This is my first Starsmith post.
+This is my first Everlog post.
 
