@@ -1,5 +1,5 @@
 var metalsmith = require('metalsmith')
-var templates = require('metalsmith-templates')
+var layouts = require('metalsmith-layouts')
 var collections = require('metalsmith-collections')
 var serve = require('metalsmith-serve')
 var watch = require('metalsmith-watch')
@@ -8,11 +8,7 @@ var permalinks = require('metalsmith-permalinks')
 var feed = require('metalsmith-feed')
 var msstatic = require('metalsmith-static')
 var msIf = require('metalsmith-if')
-
-var nunjucks = require('nunjucks')
-var njmd = require('nunjucks-markdown')
-var njdate = require('nunjucks-date')
-var marked = require('marked')
+var moment = require('moment')
 
 var meow = require('meow')
 
@@ -28,35 +24,28 @@ var cli = meow(`
 
 `)
 
-marked.setOptions({
-  gfm: true,
-  tables: true,
-  smartLists: true
-})
-
-var njenv = nunjucks.configure({watch: cli.flags.watch})
-njmd.register(njenv, marked)
-
-njdate.setDefaultFormat('YYYY-MM-DD, h:mm:ss a')
-njdate.install(njenv)
-
-njenv.addFilter('dump', JSON.stringify)
-
 metalsmith(__dirname)
   .metadata({
     site: {
       title: "Starsmith",
       url: 'http://ipfs.io/blog/',
-      author: '<a href="http://evbogue.com/">Everett Bogue</a>'
+      author: 'Everett Bogue'
     }
   })
-  .use(collections({posts: {}}))
   .use(markdown())
-  .use(templates({ 'directory': '.', 'engine': 'nunjucks', 'inPlace': true }))
-  .use(templates({ 'directory': '.', 'engine': 'nunjucks' }))
-  .use(permalinks())
+  .use(collections({
+       posts: {
+               pattern: './*.md',
+               sortBy: 'date',
+               reverse: 'True'
+       }
+   }))
+  .use(permalinks(
+      {pattern: ':collections:title',
+       relative: false
+  }))
   .use(feed({'collection': 'posts'}))
-  .use(msstatic({'src': 'tmpl/static', 'dest': 'static'}))
+  .use(layouts({engine: 'jade', moment}))
   .use(msIf(
     cli.flags.watch,
     serve({
