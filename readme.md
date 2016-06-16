@@ -1,16 +1,16 @@
-### Starsmith
+# Everlog
 
-This is a project attempting to merge the work the IPFS crew has put into their Starlog (built with Metalsmith) with Metalwork (built with Metalsmith).
+### An IPFS blog built with Metalsmith 
 
-The goal is to have a blog that both does what I want and is also deployable to IPFS.
+This is an ipfs-ready blog which is a cross between [metalwork](http://gitmx.com/ev/metalwork) and [starlog](http://github.com/ipfs/blog).
 
 ### Requirements
 
-You need to install Node.js, npm, and go-ipfs for this project to work on your machine -- newer the better.
+You need to install Node.js, npm, and go-ipfs for this project to work on your machine -- the newer the better.
 
 ### Getting started
 
-First, launch the ipfs daemon
+First, launch the ipfs daemon in a new window (or background the process with `&` or tmux)
 
 	% ipfs init # if you haven't already
 	% ipfs daemon
@@ -23,3 +23,16 @@ Next, in another window...
 	% make publish
 
 This should output a local and gateway hash of your blog. 
+
+```
+node build.js
+ipfs add -r -q build/ | tail -n1 >versions/current
+cat versions/current >>versions/history
+
+published blog:
+- http://localhost:8080/ipfs/QmUYFRNVTeeotNfCqjKwRHH5tXudaArWjAGC7wuX6vV75V
+- https://ipfs.io/ipfs/QmUYFRNVTeeotNfCqjKwRHH5tXudaArWjAGC7wuX6vV75V
+
+next steps:
+- ipfs pin add -r /ipfs/QmUYFRNVTeeotNfCqjKwRHH5tXudaArWjAGC7wuX6vV75V
+```

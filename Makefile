@@ -30,15 +30,6 @@ publish: build
 		echo "- $(gway)$$hash"; \
 		echo ""; \
 		echo "next steps:"; \
-		echo "- ipfs pin add -r /ipfs/$$hash"; \
-		echo "- make publish-to-domain"; \
-
-publish-to-github:
-	./publish-to-github
-
-# Only run after publish, or there won't be a path to set.
-publish-to-domain: auth.token
-	DIGITAL_OCEAN=$(shell cat auth.token) node_modules/.bin/dnslink-deploy \
-		--domain=$(zone) --record=$(record) --path=/ipfs/$(shell cat versions/current)
+		echo "- ipfs pin add -r /ipfs/$$hash";
 
 .PHONY: build clean publish publish-to-github
