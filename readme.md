@@ -2,6 +2,8 @@
 
 ### An IPFS blog built with Metalsmith 
 
+![Everlog](https://raw.githubusercontent.com/evbogue/everlog/master/everlog.png)
+
 This is an ipfs-ready blog which is a cross between [metalwork](http://gitmx.com/ev/metalwork) and [starlog](http://github.com/ipfs/blog).
 
 ### Requirements
