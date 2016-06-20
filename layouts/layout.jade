@@ -1,0 +1,16 @@
+block route
+
+doctype html
+html
+  head
+    title #{site.title} | #{title}
+    link(rel='stylesheet' href='#{baseurl}/reserva.css')
+    link(rel='stylesheet' href='#{baseurl}/style.css')
+  body
+    .contain
+      .six.col.off-three
+        h1= site.title
+        hr
+        p / <a href="http://ipfs.io">Ipfs</a> / <a href="#{baseurl}/">Blog</a> / <a href="#{baseurl}/">#{title}</a>
+        hr
+        block content

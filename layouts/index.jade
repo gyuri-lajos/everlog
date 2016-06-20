@@ -1,21 +1,15 @@
-doctype html
-html
-  head
-    title #{site.title} | #{title}
-    link(rel='stylesheet' href='./reserva.css')
-    link(rel='stylesheet' href='./style.css')
-  body
-    .contain
-      .six.col.off-three
-        p / <a href="http://ipfs.io">Ipfs</a> / <a href="./">Blog</a> / <a href="./">Home</a>
+extends layout
 
-        h1: a(href='./')= site.title
-        hr
-        div!= contents
-        hr
-        h4 Posts
-        ul
-          each item in collections.posts
-            li: <a href='./#{item.path}/'>#{item.title}</a> - 
-              span= moment(item.date).format('MMMM Do YYYY')
+block route
+  - var baseurl = '.'
+
+block content
+  h3: a(href='./')= title
+  div!= contents
+  hr
+  h4 Posts
+  ul
+    each item in collections.posts
+      li: <a href='./#{item.path}/'>#{item.title}</a> -
+        span= moment(item.date).format('MMMM Do YYYY')
 

@@ -1,17 +1,12 @@
-doctype html
-html
-  head
-    title #{site.title} | #{title}
-    link(rel='stylesheet' href='../reserva.css')
-    link(rel='stylesheet' href='../style.css')
-  body
-    .contain
-      .six.col.off-three
+extends layout
 
-        p / <a href="http://ipfs.io">Ipfs</a> / <a href="../">Blog</a> / <a href="./">#{title}</a>
-        h1: a(href='./')= title
-        p: em Written by <a href='http://evbogue.com'>#{site.author}</a> on 
-          span(style='color: #666;')= moment(date).format('MMMM Do YYYY')
+block route
+  - var baseurl = ".."
+
+block content
+  h3: a(href='./')= title
+
+  p Written by <a href='http://evbogue.com'>#{site.author}</a> on #{moment(date).format('MMMM Do YYYY')}
       
-        div!= contents
+  div!= contents
       
