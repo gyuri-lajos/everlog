@@ -19,8 +19,8 @@ First, launch the ipfs daemon in a new window (or background the process with `&
 
 Next, in another window...
 
-	% git clone https://gitmx.com/ev/starsmith.git
-	% cd starsmith	
+	% git clone https://gitmx.com/ev/everlog.git
+	% cd everlog
 	% npm install
 	% make publish
 
